@@ -1,0 +1,38 @@
+<div class="p-4">
+
+  @if (!data.title && !data.content) {
+    <h2 class="fw-bold">Add Your Notes</h2>
+
+  }@else {
+    <h2 class="fw-bold">Update Your Notes</h2>
+
+  }
+
+
+
+
+
+<form [formGroup]="noteForm"  (ngSubmit)="noteSubmit(noteForm)">
+  <div>
+    <mat-form-field class="d-block">
+      <mat-label>Title</mat-label>
+      <input  matInput  formControlName="title"/>
+    </mat-form-field>
+    <mat-form-field class="d-block">
+      <mat-label>Content</mat-label>
+      <input matInput formControlName="content" />
+    </mat-form-field>
+  </div>
+  <div>
+@if (!data.title && !data.content) {
+  <button mat-raised-button mat-flat-button color="warn">Add</button>
+
+}@else {
+  <button mat-raised-button mat-flat-button color="primary">Update</button>
+
+}
+
+  </div>
+</form>
+
+</div>
